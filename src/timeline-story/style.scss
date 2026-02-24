@@ -5,9 +5,8 @@
 
 .wp-block-flashblocks-timeline-story {
 	display: grid;
-	grid-template-columns: 30% var(--fb-timeline-dot-size, 18px) 1fr;
-	align-items: start;
-	/* overridden by parent alignment modifier */
+	grid-template-columns: var(--fb-timeline-date-width, 25%) var(--fb-timeline-col-width, 60px) 1fr;
+	align-items: start; /* overridden by parent alignment modifier */
 	position: relative;
 }
 

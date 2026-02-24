@@ -1,5 +1,9 @@
 import { useBlockProps, useInnerBlocksProps, InspectorControls } from '@wordpress/block-editor';
-import { PanelBody, SelectControl } from '@wordpress/components';
+import {
+	PanelBody,
+	SelectControl,
+	__experimentalUnitControl as UnitControl,
+} from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import { ColorControl } from './components/color-control';
 import { getGapCssValue } from './utils/block-gap';
@@ -18,7 +22,7 @@ const ALIGNMENT_OPTIONS = [
 ];
 
 export default function Edit( { attributes, setAttributes } ) {
-	const { lineColor, dotColor, storyAlignment, style } = attributes;
+	const { lineColor, dotColor, storyAlignment, dateWidth, timelineWidth, style } = attributes;
 	const gapValue = getGapCssValue( style?.spacing?.blockGap );
 
 	const blockProps = useBlockProps( {
@@ -26,6 +30,8 @@ export default function Edit( { attributes, setAttributes } ) {
 		style: {
 			'--fb-timeline-line-color': lineColor,
 			'--fb-timeline-dot-color': dotColor,
+			'--fb-timeline-date-width': dateWidth,
+			'--fb-timeline-col-width': timelineWidth,
 			gap: gapValue,
 		},
 	} );
@@ -45,6 +51,16 @@ export default function Edit( { attributes, setAttributes } ) {
 						options={ ALIGNMENT_OPTIONS }
 						onChange={ ( val ) => setAttributes( { storyAlignment: val } ) }
 					/>
+					<UnitControl
+						label={ __( 'Date Column Width', 'flashblocks-timeline' ) }
+						value={ dateWidth }
+						onChange={ ( val ) => setAttributes( { dateWidth: val } ) }
+						/>
+					<UnitControl
+						label={ __( 'Timeline Column Width', 'flashblocks-timeline' ) }
+						value={ timelineWidth }
+						onChange={ ( val ) => setAttributes( { timelineWidth: val } ) }
+						/>
 					<ColorControl
 						label={ __( 'Line Color', 'flashblocks-timeline' ) }
 						value={ lineColor }

@@ -16,11 +16,11 @@
 	flex-direction: column;
 	gap: 3rem;
 
-	/* Vertical line — positioned between first and last dots via view.js */
+	/* Vertical line — centered in the timeline column, positioned via view.js */
 	&::before {
 		content: "";
 		position: absolute;
-		left: 30%;
+		left: calc(var(--fb-timeline-date-width, 25%) + var(--fb-timeline-col-width, 60px) / 2);
 		width: var(--fb-timeline-line-width);
 		background-color: var(--fb-timeline-line-color);
 		translate: -50% 0;

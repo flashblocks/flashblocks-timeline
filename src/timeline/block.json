@@ -37,6 +37,14 @@
 			"type": "string",
 			"default": "top",
 			"enum": [ "top", "center", "bottom" ]
+		},
+		"dateWidth": {
+			"type": "string",
+			"default": "25%"
+		},
+		"timelineWidth": {
+			"type": "string",
+			"default": "60px"
 		}
 	},
 	"providesContext": {
