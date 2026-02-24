@@ -3,23 +3,21 @@ import { useBlockProps, useInnerBlocksProps, RichText } from '@wordpress/block-e
 export default function save( { attributes } ) {
 	const { date } = attributes;
 
-	const blockProps = useBlockProps.save( {
-		className: 'fb-timeline-story',
-	} );
+	const blockProps = useBlockProps.save();
 
 	const innerBlocksProps = useInnerBlocksProps.save( {
-		className: 'fb-timeline-story__content',
+		className: 'fbt-content',
 	} );
 
 	return (
 		<div { ...blockProps }>
-			<div className="fb-timeline-story__label">
+			<div className="fbt-label">
 				<RichText.Content
 					tagName="span"
-					className="fb-timeline-story__date"
+					className="fbt-date"
 					value={ date }
 				/>
-				<span className="fb-timeline-story__icon">
+				<span className="fbt-icon">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						viewBox="0 0 24 24"
@@ -31,7 +29,7 @@ export default function save( { attributes } ) {
 					</svg>
 				</span>
 			</div>
-			<div className="fb-timeline-story__dot" />
+			<div className="fbt-dot" />
 			<div { ...innerBlocksProps } />
 		</div>
 	);

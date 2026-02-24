@@ -1,8 +1,9 @@
 /* ==========================================================================
    Timeline — Parent Container
+   Uses WP auto-generated class: .wp-block-flashblocks-timeline
    ========================================================================== */
 
-.fb-timeline {
+.wp-block-flashblocks-timeline {
 	--fb-timeline-line-color: #c1272d;
 	--fb-timeline-dot-color: #c1272d;
 	--fb-timeline-dot-size: 18px;
@@ -14,21 +15,13 @@
 	margin-inline: auto;
 }
 
-/* Vertical line — runs between first and last dot, not beyond them.
-   We use top/bottom padding on __stories equal to where the dot sits,
-   then the ::before fills only that padded region. The first/last story
-   dots act as the visual endpoints. */
-.fb-timeline__stories {
+/* Inner stories wrapper + vertical line */
+.fbt-stories {
 	position: relative;
 	display: flex;
 	flex-direction: column;
 	gap: var(--fb-timeline-gap);
 
-	/* The line connects dot-center to dot-center. We clip it with the
-	   story container so it doesn't overshoot. The line is drawn from
-	   the top of the first dot to the bottom of the last dot via the
-	   ::before which we position relative to the first/last child dots
-	   using CSS — see the child story for how dots are placed. */
 	&::before {
 		content: "";
 		position: absolute;
@@ -43,26 +36,19 @@
 }
 
 /* ==========================================================================
-   Alignment variants — control where dot/label sit on each story
+   Alignment variants — modifier on the parent block root
    ========================================================================== */
 
-/* Top (default): dot aligns with top of content */
-.fb-timeline--align-top {
-	.fb-timeline-story {
+.wp-block-flashblocks-timeline {
+	&.align-top .wp-block-flashblocks-timeline-story {
 		align-items: start;
 	}
-}
 
-/* Center: dot aligns with vertical center of content */
-.fb-timeline--align-center {
-	.fb-timeline-story {
+	&.align-center .wp-block-flashblocks-timeline-story {
 		align-items: center;
 	}
-}
 
-/* Bottom: dot aligns with bottom of content */
-.fb-timeline--align-bottom {
-	.fb-timeline-story {
+	&.align-bottom .wp-block-flashblocks-timeline-story {
 		align-items: end;
 	}
 }
@@ -72,7 +58,7 @@
    ========================================================================== */
 
 @media (max-width: 768px) {
-	.fb-timeline__stories::before {
+	.fbt-stories::before {
 		left: 20px;
 	}
 }

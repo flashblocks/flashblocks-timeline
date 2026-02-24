@@ -33,12 +33,10 @@ const TEMPLATE = [
 export default function Edit( { attributes, setAttributes } ) {
 	const { date } = attributes;
 
-	const blockProps = useBlockProps( {
-		className: 'fb-timeline-story',
-	} );
+	const blockProps = useBlockProps();
 
 	const innerBlocksProps = useInnerBlocksProps(
-		{ className: 'fb-timeline-story__content' },
+		{ className: 'fbt-content' },
 		{
 			allowedBlocks: ALLOWED_BLOCKS,
 			template: TEMPLATE,
@@ -47,16 +45,16 @@ export default function Edit( { attributes, setAttributes } ) {
 
 	return (
 		<div { ...blockProps }>
-			<div className="fb-timeline-story__label">
+			<div className="fbt-label">
 				<RichText
 					tagName="span"
-					className="fb-timeline-story__date"
+					className="fbt-date"
 					value={ date }
 					onChange={ ( val ) => setAttributes( { date: val } ) }
 					placeholder={ __( 'Date…', 'flashblocks-timeline' ) }
 					allowedFormats={ [] }
 				/>
-				<span className="fb-timeline-story__icon">
+				<span className="fbt-icon">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						viewBox="0 0 24 24"
@@ -68,7 +66,7 @@ export default function Edit( { attributes, setAttributes } ) {
 					</svg>
 				</span>
 			</div>
-			<div className="fb-timeline-story__dot" />
+			<div className="fbt-dot" />
 			<div { ...innerBlocksProps } />
 		</div>
 	);

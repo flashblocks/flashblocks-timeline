@@ -4,7 +4,7 @@ export default function save( { attributes } ) {
 	const { lineColor, dotColor, storyAlignment } = attributes;
 
 	const blockProps = useBlockProps.save( {
-		className: `fb-timeline fb-timeline--align-${ storyAlignment }`,
+		className: `align-${ storyAlignment }`,
 		style: {
 			'--fb-timeline-line-color': lineColor,
 			'--fb-timeline-dot-color': dotColor,
@@ -12,7 +12,7 @@ export default function save( { attributes } ) {
 	} );
 
 	const innerBlocksProps = useInnerBlocksProps.save( {
-		className: 'fb-timeline__stories',
+		className: 'fbt-stories',
 	} );
 
 	return (

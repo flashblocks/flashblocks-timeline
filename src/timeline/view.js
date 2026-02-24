@@ -2,8 +2,8 @@
  * Positions the timeline line to start at the first dot and end at the last dot.
  */
 function updateLinePositions() {
-	document.querySelectorAll( '.fb-timeline__stories' ).forEach( ( stories ) => {
-		const dots = stories.querySelectorAll( '.fb-timeline-story__dot' );
+	document.querySelectorAll( '.fbt-stories' ).forEach( ( stories ) => {
+		const dots = stories.querySelectorAll( '.fbt-dot' );
 		if ( dots.length < 2 ) {
 			return;
 		}
