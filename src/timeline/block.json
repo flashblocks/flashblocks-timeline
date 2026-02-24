@@ -28,14 +28,21 @@
 		"dotColor": {
 			"type": "string",
 			"default": "#c1272d"
+		},
+		"storyAlignment": {
+			"type": "string",
+			"default": "top",
+			"enum": [ "top", "center", "bottom" ]
 		}
 	},
 	"providesContext": {
 		"flashblocks/timeline-lineColor": "lineColor",
-		"flashblocks/timeline-dotColor": "dotColor"
+		"flashblocks/timeline-dotColor": "dotColor",
+		"flashblocks/timeline-storyAlignment": "storyAlignment"
 	},
 	"textdomain": "flashblocks-timeline",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
-	"style": "file:./style-index.css"
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
 }

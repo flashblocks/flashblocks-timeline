@@ -5,7 +5,7 @@
 .fb-timeline-story {
 	display: grid;
 	grid-template-columns: 30% var(--fb-timeline-dot-size, 18px) 1fr;
-	align-items: start;
+	align-items: start; /* overridden by parent alignment modifier */
 	position: relative;
 
 	/* ---- Label (date + icon) — left column ---- */
@@ -15,7 +15,6 @@
 		justify-content: flex-end;
 		gap: 0.4em;
 		padding-right: 1.5rem;
-		padding-top: 0.25rem;
 	}
 
 	&__date {
@@ -49,9 +48,9 @@
 		background-color: var(--fb-timeline-dot-color, #c1272d);
 		border: 3px solid #fff;
 		box-shadow: 0 0 0 2px var(--fb-timeline-dot-color, #c1272d);
-		margin-top: 0.25rem;
 		flex-shrink: 0;
 		z-index: 1;
+		justify-self: center;
 	}
 
 	/* ---- Content — right column ---- */
