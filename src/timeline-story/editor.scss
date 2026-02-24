@@ -1,0 +1,9 @@
+/* Editor-only styles for Timeline Story */
+.fb-timeline-story {
+	outline: 1px dashed rgba(0, 0, 0, 0.08);
+	outline-offset: 2px;
+
+	&:hover {
+		outline-color: rgba(0, 0, 0, 0.2);
+	}
+}

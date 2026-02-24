@@ -1,0 +1,119 @@
+/* ==========================================================================
+   Timeline Story — Individual Entry
+   ========================================================================== */
+
+.fb-timeline-story {
+	display: grid;
+	grid-template-columns: 30% var(--fb-timeline-dot-size, 18px) 1fr;
+	align-items: start;
+	position: relative;
+
+	/* ---- Label (date + icon) — left column ---- */
+	&__label {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		gap: 0.4em;
+		padding-right: 1.5rem;
+		padding-top: 0.25rem;
+	}
+
+	&__date {
+		font-size: 0.9rem;
+		font-weight: 700;
+		white-space: nowrap;
+		color: inherit;
+	}
+
+	&__icon {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 22px;
+		height: 22px;
+		border-radius: 4px;
+		background-color: var(--fb-timeline-dot-color, #c1272d);
+		color: #fff;
+		flex-shrink: 0;
+
+		svg {
+			display: block;
+		}
+	}
+
+	/* ---- Dot on the line ---- */
+	&__dot {
+		width: var(--fb-timeline-dot-size, 18px);
+		height: var(--fb-timeline-dot-size, 18px);
+		border-radius: 50%;
+		background-color: var(--fb-timeline-dot-color, #c1272d);
+		border: 3px solid #fff;
+		box-shadow: 0 0 0 2px var(--fb-timeline-dot-color, #c1272d);
+		margin-top: 0.25rem;
+		flex-shrink: 0;
+		z-index: 1;
+	}
+
+	/* ---- Content — right column ---- */
+	&__content {
+		padding-left: 2rem;
+		padding-bottom: 1rem;
+
+		/* Image treatment matching the screenshot */
+		.wp-block-image {
+			max-width: 340px;
+			margin-bottom: 1rem;
+
+			img {
+				border: 4px solid #e0e0e0;
+				border-radius: 4px;
+				box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.12);
+			}
+		}
+
+		/* Heading spacing */
+		.wp-block-heading {
+			margin-top: 0.75rem;
+			margin-bottom: 0.5rem;
+		}
+
+		/* Paragraph */
+		> p,
+		> .wp-block-paragraph {
+			font-size: 0.95rem;
+			line-height: 1.6;
+			color: #444;
+		}
+	}
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 768px) {
+	.fb-timeline-story {
+		grid-template-columns: 40px 1fr;
+		grid-template-rows: auto 1fr;
+
+		&__label {
+			grid-column: 1 / -1;
+			justify-content: flex-start;
+			padding-right: 0;
+			padding-left: 50px;
+			padding-bottom: 0.5rem;
+		}
+
+		&__dot {
+			grid-column: 1;
+			grid-row: 2;
+			justify-self: center;
+		}
+
+		&__content {
+			grid-column: 2;
+			grid-row: 2;
+			padding-left: 1rem;
+		}
+	}
+}

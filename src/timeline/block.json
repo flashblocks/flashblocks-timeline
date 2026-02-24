@@ -1,0 +1,41 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "flashblocks/timeline",
+	"version": "0.1.0",
+	"title": "Timeline",
+	"category": "design",
+	"icon": "sort",
+	"description": "A vertical timeline container for story blocks.",
+	"keywords": [ "timeline", "history", "stories" ],
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"color": {
+			"background": false,
+			"text": false
+		},
+		"spacing": {
+			"padding": true,
+			"margin": true
+		}
+	},
+	"attributes": {
+		"lineColor": {
+			"type": "string",
+			"default": "#c1272d"
+		},
+		"dotColor": {
+			"type": "string",
+			"default": "#c1272d"
+		}
+	},
+	"providesContext": {
+		"flashblocks/timeline-lineColor": "lineColor",
+		"flashblocks/timeline-dotColor": "dotColor"
+	},
+	"textdomain": "flashblocks-timeline",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}
