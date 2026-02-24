@@ -2,6 +2,7 @@ import { useBlockProps, useInnerBlocksProps, InspectorControls } from '@wordpres
 import { PanelBody, SelectControl } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import { ColorControl } from './components/color-control';
+import { getGapCssValue } from './utils/block-gap';
 
 const ALLOWED_BLOCKS = [ 'flashblocks/timeline-story' ];
 
@@ -17,24 +18,22 @@ const ALIGNMENT_OPTIONS = [
 ];
 
 export default function Edit( { attributes, setAttributes } ) {
-	const { lineColor, dotColor, storyAlignment } = attributes;
+	const { lineColor, dotColor, storyAlignment, style } = attributes;
+	const gapValue = getGapCssValue( style?.spacing?.blockGap );
 
 	const blockProps = useBlockProps( {
 		className: `align-${ storyAlignment }`,
 		style: {
 			'--fb-timeline-line-color': lineColor,
 			'--fb-timeline-dot-color': dotColor,
+			gap: gapValue,
 		},
 	} );
 
-	const innerBlocksProps = useInnerBlocksProps(
-		{ className: 'fbt-stories' },
-		{
-			allowedBlocks: ALLOWED_BLOCKS,
-			template: TEMPLATE,
-			renderAppender: () => null,
-		}
-	);
+	const innerBlocksProps = useInnerBlocksProps( blockProps, {
+		allowedBlocks: ALLOWED_BLOCKS,
+		template: TEMPLATE,
+	} );
 
 	return (
 		<>
@@ -58,9 +57,7 @@ export default function Edit( { attributes, setAttributes } ) {
 					/>
 				</PanelBody>
 			</InspectorControls>
-			<div { ...blockProps }>
-				<div { ...innerBlocksProps } />
-			</div>
+			<div { ...innerBlocksProps } />
 		</>
 	);
 }

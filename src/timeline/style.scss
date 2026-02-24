@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Timeline — Parent Container
+   Timeline — Parent Container (also the flex container for stories)
    Uses WP auto-generated class: .wp-block-flashblocks-timeline
    ========================================================================== */
 
@@ -8,20 +8,15 @@
 	--fb-timeline-dot-color: #c1272d;
 	--fb-timeline-dot-size: 18px;
 	--fb-timeline-line-width: 3px;
-	--fb-timeline-gap: 3rem;
 
 	position: relative;
 	max-width: 960px;
 	margin-inline: auto;
-}
-
-/* Inner stories wrapper + vertical line */
-.fbt-stories {
-	position: relative;
 	display: flex;
 	flex-direction: column;
-	gap: var(--fb-timeline-gap);
+	gap: 3rem;
 
+	/* Vertical line — positioned between first and last dots via view.js */
 	&::before {
 		content: "";
 		position: absolute;
@@ -29,17 +24,11 @@
 		width: var(--fb-timeline-line-width);
 		background-color: var(--fb-timeline-line-color);
 		translate: -50% 0;
-		/* Set by view.js: first dot center → last dot center */
 		top: var(--fb-timeline-dot-top, 0);
 		bottom: var(--fb-timeline-dot-bottom, 0);
 	}
-}
 
-/* ==========================================================================
-   Alignment variants — modifier on the parent block root
-   ========================================================================== */
-
-.wp-block-flashblocks-timeline {
+	/* Alignment variants */
 	&.align-top .wp-block-flashblocks-timeline-story {
 		align-items: start;
 	}
@@ -58,7 +47,7 @@
    ========================================================================== */
 
 @media (max-width: 768px) {
-	.fbt-stories::before {
+	.wp-block-flashblocks-timeline::before {
 		left: 20px;
 	}
 }

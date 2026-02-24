@@ -5,14 +5,6 @@ import {
 } from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
 
-const ALLOWED_BLOCKS = [
-	'core/image',
-	'core/heading',
-	'core/paragraph',
-	'core/group',
-	'core/buttons',
-];
-
 const TEMPLATE = [
 	[ 'core/image', {} ],
 	[
@@ -38,7 +30,6 @@ export default function Edit( { attributes, setAttributes } ) {
 	const innerBlocksProps = useInnerBlocksProps(
 		{ className: 'fbt-content' },
 		{
-			allowedBlocks: ALLOWED_BLOCKS,
 			template: TEMPLATE,
 		}
 	);
