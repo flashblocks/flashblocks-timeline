@@ -6,7 +6,8 @@
 .wp-block-flashblocks-timeline-story {
 	display: grid;
 	grid-template-columns: var(--fb-timeline-date-width, 25%) var(--fb-timeline-col-width, 60px) 1fr;
-	align-items: start; /* overridden by parent alignment modifier */
+	align-items: start;
+	/* overridden by parent alignment modifier */
 	position: relative;
 }
 
@@ -58,7 +59,7 @@
    Responsive
    ========================================================================== */
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
 	.wp-block-flashblocks-timeline-story {
 		grid-template-columns: 40px 1fr;
 		grid-template-rows: auto 1fr;
@@ -67,6 +68,11 @@
 	.fbt-label {
 		grid-column: 1 / -1;
 		justify-content: flex-start;
+
+		rotate: -90deg;
+		left: -60px;
+		position: absolute;
+		// left: calc(var(--fb-timeline-date-width, 25%) + var(--fb-timeline-col-width, 60px) / 2);
 	}
 
 	.fbt-dot {

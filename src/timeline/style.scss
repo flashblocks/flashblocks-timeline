@@ -10,11 +10,9 @@
 	--fb-timeline-line-width: 3px;
 
 	position: relative;
-	max-width: 960px;
 	margin-inline: auto;
 	display: flex;
 	flex-direction: column;
-	gap: 3rem;
 
 	/* Vertical line — centered in the timeline column, positioned via view.js */
 	&::before {
@@ -46,7 +44,7 @@
    Responsive
    ========================================================================== */
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
 	.wp-block-flashblocks-timeline::before {
 		left: 20px;
 	}

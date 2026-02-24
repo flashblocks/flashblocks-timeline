@@ -10,8 +10,8 @@ export default function save( { attributes } ) {
 		style: {
 			'--fb-timeline-line-color': lineColor,
 			'--fb-timeline-dot-color': dotColor,
-			'--fb-timeline-date-width': dateWidth,
-			'--fb-timeline-col-width': timelineWidth,
+			'--fb-timeline-date-width': dateWidth || undefined,
+			'--fb-timeline-col-width': timelineWidth || undefined,
 			gap: gapValue,
 		},
 	} );
