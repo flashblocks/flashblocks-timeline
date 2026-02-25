@@ -1,8 +1,10 @@
 import {
 	useBlockProps,
 	useInnerBlocksProps,
+	InspectorControls,
 	RichText,
 } from '@wordpress/block-editor';
+import { PanelBody, TextareaControl } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 
 const TEMPLATE = [
@@ -23,7 +25,7 @@ const TEMPLATE = [
 ];
 
 export default function Edit( { attributes, setAttributes } ) {
-	const { date } = attributes;
+	const { date, iconSvg } = attributes;
 
 	const blockProps = useBlockProps();
 
@@ -35,30 +37,38 @@ export default function Edit( { attributes, setAttributes } ) {
 	);
 
 	return (
-		<div { ...blockProps }>
-			<div className="fbt-label">
-				<RichText
-					tagName="span"
-					className="fbt-date"
-					value={ date }
-					onChange={ ( val ) => setAttributes( { date: val } ) }
-					placeholder={ __( 'Date…', 'flashblocks-timeline' ) }
-					allowedFormats={ [] }
-				/>
-				<span className="fbt-icon">
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						viewBox="0 0 24 24"
-						width="16"
-						height="16"
-						fill="currentColor"
-					>
-						<path d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z" />
-					</svg>
-				</span>
+		<>
+			<InspectorControls>
+				<PanelBody title={ __( 'Story Settings', 'flashblocks-timeline' ) }>
+					<TextareaControl
+						label={ __( 'Icon SVG', 'flashblocks-timeline' ) }
+						help={ __( 'Paste raw SVG markup. Use fill="currentColor" to inherit the dot color.', 'flashblocks-timeline' ) }
+						value={ iconSvg }
+						onChange={ ( val ) => setAttributes( { iconSvg: val } ) }
+						rows={ 4 }
+					/>
+				</PanelBody>
+			</InspectorControls>
+			<div { ...blockProps }>
+				<div className="fbt-label">
+					<RichText
+						tagName="span"
+						className="fbt-date"
+						value={ date }
+						onChange={ ( val ) => setAttributes( { date: val } ) }
+						placeholder={ __( 'Date…', 'flashblocks-timeline' ) }
+						allowedFormats={ [] }
+					/>
+					{ iconSvg && (
+						<span
+							className="fbt-icon"
+							dangerouslySetInnerHTML={ { __html: iconSvg } }
+						/>
+					) }
+				</div>
+				<div className="fbt-dot" />
+				<div { ...innerBlocksProps } />
 			</div>
-			<div className="fbt-dot" />
-			<div { ...innerBlocksProps } />
-		</div>
+		</>
 	);
 }

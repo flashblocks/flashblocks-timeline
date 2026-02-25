@@ -1,7 +1,7 @@
 import { useBlockProps, useInnerBlocksProps, RichText } from '@wordpress/block-editor';
 
 export default function save( { attributes } ) {
-	const { date } = attributes;
+	const { date, iconSvg } = attributes;
 
 	const blockProps = useBlockProps.save();
 
@@ -17,17 +17,11 @@ export default function save( { attributes } ) {
 					className="fbt-date"
 					value={ date }
 				/>
-				<span className="fbt-icon">
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						viewBox="0 0 24 24"
-						width="16"
-						height="16"
-						fill="currentColor"
-					>
-						<path d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z" />
-					</svg>
-				</span>
+				{ iconSvg && (
+					<span className="fbt-icon">
+						<RichText.Content value={ iconSvg } />
+					</span>
+				) }
 			</div>
 			<div className="fbt-dot" />
 			<div { ...innerBlocksProps } />

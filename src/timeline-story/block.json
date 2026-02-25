@@ -7,13 +7,23 @@
 	"category": "design",
 	"icon": "marker",
 	"description": "A single story entry within a timeline.",
-	"keywords": [ "story", "event", "milestone" ],
-	"parent": [ "flashblocks/timeline" ],
+	"keywords": [
+		"story",
+		"event",
+		"milestone"
+	],
+	"parent": [
+		"flashblocks/timeline"
+	],
 	"supports": {
 		"html": false
 	},
 	"attributes": {
 		"date": {
+			"type": "string",
+			"default": ""
+		},
+		"iconSvg": {
 			"type": "string",
 			"default": ""
 		}

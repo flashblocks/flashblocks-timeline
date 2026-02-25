@@ -42,11 +42,8 @@
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	width: 22px;
-	height: 22px;
-	border-radius: 4px;
-	background-color: var(--fb-timeline-dot-color, #c1272d);
-	color: #fff;
+	// width: 22px;
+	// height: 22px;
 	flex-shrink: 0;
 
 	svg {
@@ -86,7 +83,9 @@
 
 		position: absolute;
 		z-index: 2;
-		translate: 20px -20px;
+		// translate: 0 -20px;
+		// translate: 0 100%;
+
 		rotate: -90deg;
 		transform-origin: left;
 	}
