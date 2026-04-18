@@ -10,7 +10,7 @@
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       flashblocks-timeline
  * Flashblocks Module: yes
- * Flashblocks Category: content
+ * Flashblocks Category: Blocks
  * Flashblocks Tags: timeline, stories
  *
  * @package FlashblocksTimeline
